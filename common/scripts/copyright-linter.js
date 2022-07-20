@@ -11,7 +11,14 @@ const filePaths = process.argv.reduce((acc, cur) => {
     return [];
   } else if (cur === "--fix") {
     // Support manually updating to fix changes made before the linter was fixed.
-    return child_process.execSync("git diff --name-only master")
+    return child_process.execSync("git diff --name-only main")
+      .toString()
+      .split("\n")
+      .map(f => path.join(__dirname, "../..", f))
+      .filter(f => /\.(js|ts|tsx|scss|css)$/.test(f));
+  } else if (cur === "--manual") {
+    // Support manually updating to fix changes made before the linter was fixed.
+    return child_process.execSync("git ls-files")
       .toString()
       .split("\n")
       .map(f => path.join(__dirname, "../..", f))
