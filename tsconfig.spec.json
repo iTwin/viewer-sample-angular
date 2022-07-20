@@ -2,9 +2,13 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "paths": {
+      "path": ["./node_modules/path-browserify"]
+    },
     "outDir": "./out-tsc/spec",
     "types": [
-      "jasmine"
+      "jasmine",
+      "node"
     ]
   },
   "files": [

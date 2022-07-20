@@ -1,3 +1,7 @@
+/*---------------------------------------------------------------------------------------------
+* Copyright (c) Bentley Systems, Incorporated. All rights reserved.
+* See LICENSE.md in the project root for license terms and full copyright notice.
+*--------------------------------------------------------------------------------------------*/
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthorizationService } from '@shared/services/authorization.service';

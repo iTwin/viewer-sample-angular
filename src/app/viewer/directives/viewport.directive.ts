@@ -1,3 +1,7 @@
+/*---------------------------------------------------------------------------------------------
+* Copyright (c) Bentley Systems, Incorporated. All rights reserved.
+* See LICENSE.md in the project root for license terms and full copyright notice.
+*--------------------------------------------------------------------------------------------*/
 import { environment } from 'src/environments/environment';
 
 import { Directive, ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
