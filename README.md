@@ -10,11 +10,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 - Your client should include the following:
   - API Associations
-  - Visualization - enable the imodelaccess:read scope
-  - iModels - enable the imodels:read scope
-  - Reality Data - enable the realitydate:read scope
+  - Visualization - enable the `imodelaccess:read` scope
+  - iModels - enable the `imodels:read` scope
+  - Reality Data - enable the `realitydate:read` scope
   - Application type - SPA
-  - Redirect URIs - http://localhost:3000
+  - Redirect URIs - `http://localhost:3000`
 
 2. Run `npm start` for a development server.
    The application will redirect you to Bentley's sign in pages if you are not signed in already.
@@ -24,7 +24,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Viewport Directive
 
-The [Viewport Directive](./src/app/viewer/directives/viewport.directive.ts) will initialize an iTwinjs viewport in the `<div>` specified:
+The [Viewport Directive](./src/app/viewer/directives/viewport.directive.ts) will initialize an iTwin.js viewport in the `<div>` specified:
 
 ```html
 <div
@@ -36,9 +36,9 @@ The [Viewport Directive](./src/app/viewer/directives/viewport.directive.ts) will
 ></div>
 ```
 
-- IModelApp.startup must be called before showing a viewport.
+- [IModelApp.startup](https://www.itwinjs.org/reference/core-frontend/imodelapp/imodelapp/startupstatic/) must be called before showing a viewport.
 - The viewport div has to have a set width and height.
-- If no iModelId/iTwinId are provided, the viewport will default to whatever was set in the environment file.
+- If no iTwinId/iModelId are provided, the viewport will default to whatever was set in the environment file.
 - `(initialized)` will call whichever function you provide with [ViewportProps](./src/app/shared/types/viewport-props.ts) after the viewport is initialized.
 
 ## Code scaffolding
