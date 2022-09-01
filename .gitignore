@@ -148,5 +148,3 @@ dist
 
 # TernJS port file
 .tern-port
-
-src/environments/environment.local.ts
