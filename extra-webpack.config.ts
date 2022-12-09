@@ -2,11 +2,10 @@
 * Copyright (c) Bentley Systems, Incorporated. All rights reserved.
 * See LICENSE.md in the project root for license terms and full copyright notice.
 *--------------------------------------------------------------------------------------------*/
-import * as webpack from 'webpack';
 import NodePolyfillPlugin from "node-polyfill-webpack-plugin";
 
 export default (
-    config: webpack.Configuration,
+    config: any,
 ) => {
   // do your config modifications here
   config.resolve = {
