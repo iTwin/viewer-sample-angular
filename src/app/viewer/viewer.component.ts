@@ -14,6 +14,7 @@ import { FrontendIModelsAccess } from '@itwin/imodels-access-frontend';
 import { IModelsClient } from '@itwin/imodels-client-management';
 import { PresentationRpcInterface } from '@itwin/presentation-common';
 import { AuthorizationService } from '@shared/services/authorization.service';
+import { DiagnosticsPanel } from "@itwin/frontend-devtools";
 
 import { SelectionLoggerService } from './services/selection-logger.service';
 import { ToolsService } from './services/tools.service';
@@ -29,6 +30,7 @@ export class ViewerComponent implements OnInit {
 
   public initialized = false;
   public viewportId = "myFirstViewportId"
+  private _diagnosticPanel?: DiagnosticsPanel;
 
   constructor(
     private toolsService: ToolsService,
@@ -82,7 +84,22 @@ export class ViewerComponent implements OnInit {
       viewportProps.imodelConnection.selectionSet.onChanged.addListener((evt) => {
         this.selectionLoggerService.onSelectionChanged(viewportProps.imodelConnection, evt);
       });
+      this._addDiagnosticsPanel(viewportProps);
     }
+  }
+
+  private _addDiagnosticsPanel(viewportProps: ViewportProps) {
+    this._diagnosticPanel = new DiagnosticsPanel(viewportProps.vp, { exclude: { keyin: true } });
+    this._diagnosticPanel.element.className = "debugPanel";
+
+    this._diagnosticPanel.element.style.position = "absolute";
+    this._diagnosticPanel.element.style.height = "auto";
+    this._diagnosticPanel.element.style.top = "0px";
+    this._diagnosticPanel.element.style.backgroundColor = "white";
+    this._diagnosticPanel.element.style.left = "0px";
+    this._diagnosticPanel.element.style.zIndex = "100";
+
+    viewportProps.viewportDiv.appendChild(this._diagnosticPanel.element);
   }
 
 }
