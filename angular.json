@@ -24,10 +24,13 @@
               "path": "./extra-webpack.config.ts"
             },
             "allowedCommonJsDependencies": [
-              "url",
-              "xml-js",
               "@itwin/imodels-access-frontend",
-              "@itwin/imodels-client-management"
+              "@itwin/imodels-client-management",
+              "@itwin/object-storage-azure",
+              "@opentelemetry/api",
+              "semver",
+              "url",
+              "xml-js"
             ],
             "outputPath": "dist/viewer-sample-angular",
             "index": "src/index.html",
@@ -43,9 +46,7 @@
                 "output": "./"
               }
             ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "styles": ["src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -71,6 +72,9 @@
               "outputHashing": "all"
             },
             "development": {
+              "verbose": true,
+              "statsJson": true,
+              "showCircularDependencies": true,
               "buildOptimizer": false,
               "optimization": false,
               "vendorChunk": true,

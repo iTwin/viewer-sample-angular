@@ -15,7 +15,8 @@
     "clean": "rimraf dist",
     "test": "ng test",
     "test:ci": "ng test --browsers=Headless --no-watch",
-    "purge": "npm run clean && rimraf node_modules"
+    "purge": "npm run clean && rimraf node_modules",
+    "deploy:test": "cd dist/viewer-sample-angular && http-server -p 3000"
   },
   "private": true,
   "dependencies": {
@@ -28,18 +29,18 @@
     "@angular/platform-browser-dynamic": "~13.3.0",
     "@angular/router": "~13.3.0",
     "@bentley/icons-generic-webfont": "^1.0.34",
-    "@itwin/appui-abstract": "^3.3.0",
+    "@itwin/appui-abstract": "^3.5.1",
     "@itwin/browser-authorization": "^0.5.1",
-    "@itwin/core-bentley": "^3.3.0",
-    "@itwin/core-common": "^3.3.0",
-    "@itwin/core-frontend": "^3.3.0",
-    "@itwin/core-geometry": "^3.3.0",
-    "@itwin/core-orbitgt": "^3.3.0",
-    "@itwin/core-quantity": "^3.3.0",
+    "@itwin/core-bentley": "^3.5.1",
+    "@itwin/core-common": "^3.5.1",
+    "@itwin/core-frontend": "^3.5.1",
+    "@itwin/core-geometry": "^3.5.1",
+    "@itwin/core-orbitgt": "^3.5.1",
+    "@itwin/core-quantity": "^3.5.1",
     "@itwin/imodels-access-frontend": "^1.0.1",
     "@itwin/imodels-client-management": "^1.0.1",
-    "@itwin/presentation-common": "^3.3.0",
-    "@itwin/webgl-compatibility": "^3.3.0"
+    "@itwin/presentation-common": "^3.5.1",
+    "@itwin/webgl-compatibility": "^3.5.1"
   },
   "devDependencies": {
     "@angular-builders/custom-webpack": "^13.1.0",
@@ -48,6 +49,8 @@
     "@angular/compiler-cli": "~13.3.0",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
+    "cross-env": "7.0.3",
+    "http-server": "^14.1.1",
     "jasmine-core": "~4.0.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
