@@ -73,11 +73,10 @@
             },
             "development": {
               "verbose": true,
-              "aot": true,
               "statsJson": true,
               "showCircularDependencies": true,
-              "buildOptimizer": true,
-              "optimization": true,
+              "buildOptimizer": false,
+              "optimization": false,
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
