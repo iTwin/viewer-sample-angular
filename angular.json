@@ -24,7 +24,6 @@
               "path": "./extra-webpack.config.ts"
             },
             "allowedCommonJsDependencies": [
-              "@itwin/core-bentley",
               "@itwin/imodels-access-frontend",
               "@itwin/imodels-client-management",
               "@itwin/object-storage-azure",
@@ -47,9 +46,7 @@
                 "output": "./"
               }
             ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "styles": ["src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -75,6 +72,10 @@
               "outputHashing": "all"
             },
             "development": {
+              "verbose": true,
+              "aot": true,
+              "statsJson": true,
+              "showCircularDependencies": true,
               "buildOptimizer": true,
               "optimization": true,
               "vendorChunk": true,
