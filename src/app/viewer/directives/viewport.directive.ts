@@ -69,8 +69,7 @@ export class ViewportDirective implements OnInit {
       this.initialized.emit({ 
         imodelConnection: iModelConnection,
         viewportDiv: this._viewportDiv,
-        viewportId: this.viewportId,
-        vp,
+        viewportId: this.viewportId
       });
     }
   }

@@ -1,6 +1,6 @@
 # Angular
 # Local config files
-src/environments/environment.local.ts
+environment.local.ts
 
 # Compiled output
 /dist

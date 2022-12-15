@@ -2,7 +2,7 @@
 * Copyright (c) Bentley Systems, Incorporated. All rights reserved.
 * See LICENSE.md in the project root for license terms and full copyright notice.
 *--------------------------------------------------------------------------------------------*/
-import type { IModelConnection, ScreenViewport } from "@itwin/core-frontend"
+import type { IModelConnection } from "@itwin/core-frontend"
 
 export type ViewportProps = {
   /** viewport's imodel connection */
@@ -11,6 +11,4 @@ export type ViewportProps = {
   viewportDiv: HTMLDivElement,
   /** id of this specific viewport */
   viewportId: string
-  /** the viewport itself */
-  vp: ScreenViewport;
 }
