@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
 import { Component, OnInit } from '@angular/core';
 import { assert } from '@itwin/core-bentley';
 import {
-    BentleyCloudRpcManager, IModelReadRpcInterface, IModelTileRpcInterface
+  BentleyCloudRpcManager, IModelReadRpcInterface, IModelTileRpcInterface
 } from '@itwin/core-common';
 import { IModelApp } from '@itwin/core-frontend';
 import { FrontendIModelsAccess } from '@itwin/imodels-access-frontend';
@@ -50,8 +50,14 @@ export class ViewerComponent implements OnInit {
     // IModelApp.startup must be called before loading any imodel or viewport
     await IModelApp.startup({
       authorizationClient: this.authService.client,
-      hubAccess: new FrontendIModelsAccess(new IModelsClient()),
       rpcInterfaces: [IModelReadRpcInterface],
+      hubAccess: new FrontendIModelsAccess(
+        new IModelsClient({
+          api: {
+            baseUrl: `https://api.bentley.com/imodels`,
+          },
+        })
+      ),
       mapLayerOptions: {
         BingMaps: {
           key: "key",
@@ -62,7 +68,7 @@ export class ViewerComponent implements OnInit {
     BentleyCloudRpcManager.initializeClient(
       {
         uriPrefix: "https://api.bentley.com",
-        info: { title: "imodel/rpc", version: "" },
+        info: { title: "imodel/rpc", version: "v4" },
       },
       [IModelReadRpcInterface, IModelTileRpcInterface, PresentationRpcInterface]
     );
